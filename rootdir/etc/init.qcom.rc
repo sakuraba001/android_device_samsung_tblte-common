@@ -199,7 +199,7 @@ on post-fs-data
     chmod 0660 /sys/class/leds/torch-sec1/brightness
     chown system camera /sys/class/leds/torch-sec1/brightness
 
-    # trlte torch
+    # tblte torch
     chmod 0660  /sys/class/camera/flash/rear_flash
     chown system camera  /sys/class/camera/flash/rear_flash
 
