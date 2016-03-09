@@ -30,7 +30,7 @@
 #include <hardware/fingerprint.h>
 #include <unistd.h>
 
-#include "fp_trlte.h"
+#include "fp_tblte.h"
 
 #define MAX_COMM_CHARS 128
 #define MAX_NUM_FINGERS 5
@@ -592,7 +592,7 @@ fingerprint_module_t HAL_MODULE_INFO_SYM = {
         .module_api_version = FINGERPRINT_MODULE_API_VERSION_2_0,
         .hal_api_version    = HARDWARE_HAL_API_VERSION,
         .id                 = FINGERPRINT_HARDWARE_MODULE_ID,
-        .name               = "TRLTE Fingerprint HAL",
+        .name               = "TBLTE Fingerprint HAL",
         .author             = "ljzyal(ljzyal@gmail.com)",
         .methods            = &fingerprint_module_methods,
     },

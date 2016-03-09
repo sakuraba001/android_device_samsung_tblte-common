@@ -41,6 +41,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.lte_vrat_report=1 \
     ro.telephony.mms_data_profile=5
 
+# Ril
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.telephony.ril_class=tblteRIL
+
 # Sensors
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.sensors=1
@@ -51,7 +55,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # perf
 PRODUCT_PROPERTY_OVERRIDES += \
-ro.core_ctl_min_cpu=2 \
-ro.core_ctl_max_cpu=4 \
-ro.min_freq_0=300000 \
-ro.qualcomm.perf.cores_online=2
+    ro.core_ctl_min_cpu=2 \
+    ro.core_ctl_max_cpu=4 \
+    ro.min_freq_0=300000 \
+    ro.qualcomm.perf.cores_online=2
