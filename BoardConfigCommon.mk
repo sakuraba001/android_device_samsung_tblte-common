@@ -110,6 +110,9 @@ USE_DEVICE_SPECIFIC_DATASERVICES := true
 COMMON_GLOBAL_CFLAGS += -DQCOM_BSP
 TARGET_USES_QCOM_BSP := true
 
+# Radio
+BOARD_RIL_CLASS := ../../../device/samsung/tblte-common/ril
+
 # Recovery
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/samsung/tblte-common/recovery/recovery_keys.c
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
