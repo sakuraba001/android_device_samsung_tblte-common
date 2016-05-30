@@ -1271,9 +1271,10 @@ service adsprpcd /system/bin/adsprpcd
     group media
 
 service qcamerasvr /system/bin/mm-qcamera-daemon
-    class main
+    class late_start
     user camera
-    group camera system inet input graphics radio sdcard_rw sdcard_r media_rw shell log
+    group camera system inet input graphics
+
     writepid /dev/cpuset/system-background/tasks
 
 # there seems to be a large philosophical discussion about this daemon.  The consensus seems to
