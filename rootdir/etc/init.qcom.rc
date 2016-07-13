@@ -402,8 +402,8 @@ on boot
     # cpuset
     write /dev/cpuset/foreground/cpus 0-3
     write /dev/cpuset/foreground/boost/cpus 0-3
-    write /dev/cpuset/background/cpus 0
-    write /dev/cpuset/system-background/cpus 0-1
+    write /dev/cpuset/background/cpus 0-1
+    write /dev/cpuset/system-background/cpus 0-3
     write /dev/cpuctl/cpu.shares 1024
 
     mount debugfs /sys/kernel/debug /sys/kernel/debug
