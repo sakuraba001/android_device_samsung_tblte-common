@@ -1297,12 +1297,12 @@ service mpdecision /system/bin/mpdecision --avg_comp
     writepid /dev/cpuset/system-background/tasks
     disabled
 
-service thermal-engine /system/bin/thermal-engine
+service thermal-engine /system/vendor/bin/thermal-engine
     class main
     user root
     group radio system
 
-service sensorhubservice /system/vendor/bin/sensorhubservice
+service sensorhubservice /system/bin/sensorhubservice
     class main
     user system
     group input
