@@ -393,6 +393,12 @@ on early-boot
     write /sys/kernel/boot_adsp/boot 1
 
 on boot
+    # Vibrations
+    chown system system /sys/devices/virtual/timed_output/vibrator/enable
+    chown system system /sys/devices/virtual/timed_output/vibrator/intensity
+    # Default to 90% vibrator strength
+    write /sys/devices/virtual/timed_output/vibrator/intensity 9000
+
     # cpuset
     write /dev/cpuset/foreground/cpus 0-3
     write /dev/cpuset/foreground/boost/cpus 0-3
