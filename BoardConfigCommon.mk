@@ -111,6 +111,7 @@ USE_DEVICE_SPECIFIC_DATASERVICES := true
 # Qualcomm support
 COMMON_GLOBAL_CFLAGS += -DQCOM_BSP
 TARGET_USES_QCOM_BSP := true
+BOARD_USES_QCOM_HARDWARE := true
 
 # Radio
 BOARD_RIL_CLASS := ../../../device/samsung/tblte-common/ril
