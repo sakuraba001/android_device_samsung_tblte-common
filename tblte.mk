@@ -96,6 +96,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_platform_info.xml:system/etc/audio_platform_info.xml \
     $(LOCAL_PATH)/audio/audio_policy.conf:system/etc/audio_policy.conf
 
+# Bluetooth    
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/configs/iop_bt.db:/system/etc/bluetooth/iop_bt.db 
+
 # Camera
 PRODUCT_PACKAGES += \
     libxml2 \
