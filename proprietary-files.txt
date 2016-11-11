@@ -309,12 +309,12 @@ vendor/lib/mediadrm/libdrmclearkeyplugin.so
 vendor/lib/mediadrm/libwvdrmengine.so
 
 # Fingerprint
-#bin/vcsFPService
-#lib/libfpasmtztransport.so
-#lib/libvalAuth.so
-#lib/libvcsfp.so
-#lib/libvfmClient.so
-#lib/libvfmtztransport.so
+bin/vcsFPService
+lib/libfpasmtztransport.so
+lib/libvalAuth.so
+lib/libvcsfp.so
+lib/libvfmClient.so
+lib/libvfmtztransport.so
 
 # GPS
 bin/loc_launcher
