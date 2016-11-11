@@ -67,3 +67,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.core_ctl_max_cpu=4 \
     ro.min_freq_0=300000 \
     ro.qualcomm.perf.cores_online=2
+    
+# Burn-in protection
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.systemui.burn_in_protection=true    
