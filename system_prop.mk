@@ -29,7 +29,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.qualcomm.cabl=1 \
     ro.secwvk=144 \
     ro.sf.lcd_density=560 \
-    ro.opengles.version=196608
+    ro.opengles.version=196609
 
 # GPS
 PRODUCT_PROPERTY_OVERRIDES += \
