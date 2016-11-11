@@ -18,6 +18,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     audio.offload.pcm.16bit.enable=true \
     audio.offload.pcm.24bit.enable=true
 
+# Device
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.product.model=Note Edge
+
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.hwc.mdpcomp.enable=false \
