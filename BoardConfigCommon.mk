@@ -54,7 +54,7 @@ BOARD_CHARGER_ENABLE_SUSPEND := true
 BOARD_CHARGER_SHOW_PERCENTAGE := true
 
 # CMHW
-BOARD_HARDWARE_CLASS += $(LOCAL_PATH)/cmhw
+BOARD_HARDWARE_CLASS := device/samsung/tblte-common/cmhw
 
 # Display
 BOARD_EGL_CFG := device/samsung/tblte-common/configs/egl.cfg
