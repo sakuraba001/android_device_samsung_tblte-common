@@ -109,7 +109,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libxml2 \
     camera.apq8084 \
-    libstlport \
     Snap
 
 # Charger
