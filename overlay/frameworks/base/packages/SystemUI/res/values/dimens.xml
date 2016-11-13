@@ -23,4 +23,7 @@
 <!-- The side padding of the notifications-->
     <dimen name="notification_side_padding">0dp</dimen>
     
+<!-- The text size for battery level -->
+    <dimen name="battery_level_text_size">13sp</dimen>    
+    
 </resources>
