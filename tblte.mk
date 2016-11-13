@@ -107,7 +107,7 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/configs/bt_did.conf:/system/etc/bluetooth/bt_did.conf \
 	$(LOCAL_PATH)/configs/bt_stack.conf:/system/etc/bluetooth/bt_stack.conf \
 	$(LOCAL_PATH)/configs/iop_bt.db:/system/etc/bluetooth/iop_bt.db \
-	$(LOCAL_PATH)/configs/iot_devlist.conf:/system/etc/bluetooth/iot_devlist.conf
+	$(LOCAL_PATH)/configs/iop_device_list.conf:/system/etc/bluetooth/iop_device_list.conf
 
 # Camera
 PRODUCT_PACKAGES += \
