@@ -19,7 +19,7 @@ LOCAL_PATH := $(call my-dir)
 ifeq ($(BOARD_VENDOR),samsung)
 ifeq ($(TARGET_BOARD_PLATFORM),apq8084)
 
-ifneq ($(filter tblte tbltedcm tbltekdi,$(TARGET_DEVICE)),)
+ifneq ($(filter tblte tbltetmo tbltecan tbltespr tblteusc tbltexx tbltedcm tbltekdi,$(TARGET_DEVICE)),)
 include $(call all-subdir-makefiles,$(LOCAL_PATH))
 endif
 
@@ -51,7 +51,8 @@ $(DTCPIP_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 ALL_DEFAULT_INSTALLED_MODULES += $(DTCPIP_SYMLINKS)
 
 KM_IMAGES := \
-    keymaste.b00 keymaste.b01 keymaste.b02 keymaste.b03 keymaste.mdt
+    keymaste.b00 keymaste.b01 keymaste.b02 keymaste.b03 keymaste.mdt \
+    skeymast.b00 skeymast.b01 skeymast.b02 skeymast.b03 skeymast.mdt
 
 KM_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(KM_IMAGES)))
 $(KM_SYMLINKS): $(LOCAL_INSTALLED_MODULE)

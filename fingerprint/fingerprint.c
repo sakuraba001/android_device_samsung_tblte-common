@@ -30,7 +30,7 @@
 #include <hardware/fingerprint.h>
 #include <unistd.h>
 
-#include "fp_trlte.h"
+#include "fp_tblte.h"
 
 #define MAX_COMM_CHARS 128
 #define MAX_NUM_FINGERS 5
@@ -373,12 +373,12 @@ static int fingerprint_remove(struct fingerprint_device *device,
     if (fid == 0) {
         // Delete all fingerprints
         command[2] = 21;
+        int fingermask = getfingermask(vdev);
         pthread_mutex_lock(&vdev->lock);
         ret = sendcommand(vdev, command, 3);
         pthread_mutex_unlock(&vdev->lock);
         if (ret == 0){
             pthread_mutex_lock(&vdev->lock);
-            int fingermask = getfingermask(vdev);
             pthread_mutex_unlock(&vdev->lock);
             int idx = 0;
             for (idx = 0; idx < MAX_NUM_FINGERS; idx++)
@@ -396,10 +396,8 @@ static int fingerprint_remove(struct fingerprint_device *device,
         vdev->listener.state = STATE_IDLE;
         pthread_mutex_unlock(&vdev->lock);
 
-        if (ret == 0) {
-            send_remove_notice(vdev, fid);
-        }
-
+        // Always send remove notice
+        send_remove_notice(vdev, fid);
     }
     pthread_mutex_lock(&vdev->lock);
 
@@ -592,7 +590,7 @@ fingerprint_module_t HAL_MODULE_INFO_SYM = {
         .module_api_version = FINGERPRINT_MODULE_API_VERSION_2_0,
         .hal_api_version    = HARDWARE_HAL_API_VERSION,
         .id                 = FINGERPRINT_HARDWARE_MODULE_ID,
-        .name               = "TRLTE Fingerprint HAL",
+        .name               = "TBLTE Fingerprint HAL",
         .author             = "ljzyal(ljzyal@gmail.com)",
         .methods            = &fingerprint_module_methods,
     },

@@ -1,3 +1,7 @@
+# Art
+PRODUCT_PROPERTY_OVERRIDES += \
+dalvik.vm.dex2oat-swap=false
+
 # Audio
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.audio.fluence.speaker=true \
@@ -14,6 +18,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     audio.offload.pcm.16bit.enable=true \
     audio.offload.pcm.24bit.enable=true
 
+# Device
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.product.model=Note Edge
+
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.hwc.mdpcomp.enable=false \
@@ -21,7 +29,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.qualcomm.cabl=1 \
     ro.secwvk=144 \
     ro.sf.lcd_density=560 \
-    ro.opengles.version=196608
+    ro.opengles.version=196609
 
 # Gps
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -67,6 +75,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.ril.telephony.mqanelements=6 \
     ro.telephony.mms_data_profile=5
 
+# Ril
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.telephony.ril_class=tblteRIL
+
 # Sensors
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.sensors=1
@@ -75,13 +87,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.isUsbOtgEnabled=true
 
-# Perf
+# perf
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.core_ctl_min_cpu=2 \
     ro.core_ctl_max_cpu=4 \
     ro.min_freq_0=300000 \
     ro.qualcomm.perf.cores_online=2
-
-# Wifi
+    
+# Burn-in protection
 PRODUCT_PROPERTY_OVERRIDES += \
-    wifi.interface=wlan0
+    ro.systemui.burn_in_protection=true    

@@ -26,15 +26,19 @@ TARGET_CPU_VARIANT := krait
 # Audio
 BOARD_USES_ALSA_AUDIO := true
 AUDIO_FEATURE_ENABLED_HWDEP_CAL := true
-AUDIO_USE_LL_AS_PRIMARY := true
+AUDIO_FEATURE_LOW_LATENCY_PRIMARY := true
+AUDIO_FEATURE_ENABLED_LOW_LATENCY_CAPTURE := true
 BOARD_USES_ES705 := true
 TARGET_HAVE_DYN_A2DP_SAMPLERATE := true
+BOARD_HAVE_SAMSUNG_CSDCLIENT := true
+USE_CUSTOM_AUDIO_POLICY := 1
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH_BCM := true
 BOARD_BLUEDROID_VENDOR_CONF := $(LOCAL_PATH)/bluetooth/vnd_tblte.txt
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
 BOARD_BLUETOOTH_USES_HCIATTACH_PROPERTY := false
+AUDIO_FEATURE_ENABLED_HFP := true
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := APQ8084
@@ -46,16 +50,22 @@ COMMON_GLOBAL_CFLAGS += -DSAMSUNG_CAMERA_HARDWARE
 
 # Charger
 BOARD_CHARGER_DISABLE_INIT_BLANK := true
+BOARD_CHARGER_ENABLE_SUSPEND := true
+BOARD_CHARGER_SHOW_PERCENTAGE := true
 
 # CMHW
-BOARD_HARDWARE_CLASS += device/samsung/tblte-common/cmhw
+BOARD_HARDWARE_CLASS := device/samsung/tblte-common/cmhw
 
 # Display
+BOARD_EGL_CFG := device/samsung/tblte-common/configs/egl.cfg
 OVERRIDE_RS_DRIVER:= libRSDriver_adreno.so
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
 MAX_EGL_CACHE_SIZE := 2048*1024
 HAVE_ADRENO_SOURCE := false
 USE_OPENGL_RENDERER := true
+
+# Fonts
+EXTENDED_FONT_FOOTPRINT := true
 
 # Include path
 TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
@@ -93,9 +103,7 @@ TARGET_BOARD_PLATFORM := apq8084
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno420
 USE_CLANG_PLATFORM_BUILD := true
 
-# Power HAL
-TARGET_POWERHAL_VARIANT := qcom
-TARGET_POWERHAL_SET_INTERACTIVE_EXT := $(LOCAL_PATH)/power/power_ext.c
+#  Power HAL not specified, we're using the one in trlte-common instead.
 
 # Data services
 USE_DEVICE_SPECIFIC_DATASERVICES := true
@@ -103,6 +111,10 @@ USE_DEVICE_SPECIFIC_DATASERVICES := true
 # Qualcomm support
 COMMON_GLOBAL_CFLAGS += -DQCOM_BSP
 TARGET_USES_QCOM_BSP := true
+BOARD_USES_QCOM_HARDWARE := true
+
+# Radio
+BOARD_RIL_CLASS := ../../../device/samsung/tblte-common/ril
 
 # Recovery
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/samsung/tblte-common/recovery/recovery_keys.c
@@ -145,15 +157,7 @@ WIFI_BUS := PCIE
 # Vold
 BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
 BOARD_VOLD_MAX_PARTITIONS := 28
-TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun/file
 
-# Enable dex-preoptimization to speed up first boot sequence
-ifeq ($(HOST_OS),linux)
-  ifeq ($(TARGET_BUILD_VARIANT),user)
-    ifeq ($(WITH_DEXPREOPT),)
-      WITH_DEXPREOPT := true
-    endif
-  endif
-endif
-
-TARGET_USES_BLOCK_BASED_OTA := false
+# Disable dex-preoptimization
+WITH_DEXPREOPT := false

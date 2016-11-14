@@ -32,7 +32,10 @@ PRODUCT_AAPT_PREBUILT_DPI := xxxhdpi xxhdpi xhdpi hdpi
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 2560
-TARGET_SCREEN_WIDTH := 1440
+TARGET_SCREEN_WIDTH := 1601
+
+PRODUCT_PROPERTY_OVERRIDES += \
+   dalvik.vm.heapgrowthlimit=256m
 
 PRODUCT_PROPERTY_OVERRIDES += \
 
@@ -91,7 +94,6 @@ PRODUCT_PACKAGES += \
     tinymix
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/audio/audio_effects.conf:system/vendor/etc/audio_effects.conf \
     $(LOCAL_PATH)/audio/audio_platform_info.xml:system/etc/audio_platform_info.xml \
     $(LOCAL_PATH)/audio/audio_policy.conf:system/etc/audio_policy.conf \
     $(LOCAL_PATH)/audio/audio_platform_info_i2s.xml:system/etc/audio_platform_info_i2s.xml \
@@ -100,6 +102,14 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/jack_alsa_mixer.json:system/etc/jack_alsa_mixer.json \
     $(LOCAL_PATH)/audio/mixer_paths_i2s.xml:system/etc/mixer_paths_i2s.xml \
     $(LOCAL_PATH)/audio/sound_trigger_mixer_paths.xml:system/etc/sound_trigger_mixer_paths.xml
+
+# Bluetooth    
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/configs/auto_pair_devlist.conf:/system/etc/auto_pair_devlist.conf \
+	$(LOCAL_PATH)/configs/bt_did.conf:/system/etc/bluetooth/bt_did.conf \
+	$(LOCAL_PATH)/configs/bt_stack.conf:/system/etc/bluetooth/bt_stack.conf \
+	$(LOCAL_PATH)/configs/iop_bt.db:/system/etc/bluetooth/iop_bt.db \
+	$(LOCAL_PATH)/configs/iop_device_list.conf:/system/etc/bluetooth/iop_device_list.conf
 
 # Camera
 PRODUCT_PACKAGES += \
@@ -130,9 +140,6 @@ PRODUCT_PACKAGES += \
     fingerprintd \
     fingerprint.apq8084 \
     ValidityService
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    fingerprint_enabled=1
 
 # GPS
 PRODUCT_PACKAGES += \
@@ -227,8 +234,7 @@ PRODUCT_PACKAGES += \
 
 # Samsung symbols
 PRODUCT_PACKAGES += \
-    libshim_ril \
-    libshim_rmt \
+    libsamsung_symbols \
     libshim_qcopt
 
 # Torch
@@ -257,7 +263,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libcnefeatureconfig \
     libril_shim \
-    librmt_shim
+    librmt_shim \
+    libprotobuf-cpp-full
 
 # Reduce client buffer size for fast audio output tracks
 PRODUCT_PROPERTY_OVERRIDES += \
